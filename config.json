@@ -1,0 +1,15 @@
+{
+    "bots":
+    [
+        {
+            "token"     : "TOKEN_HERE",
+            "owner"     : "USER_ID_HERE",
+            "replyRate" : 100,
+            "learn"     : 1,
+            "sentences" : {
+                "hi":   "Hi !",
+                "help": "Help !"
+            }
+        }
+    ]
+}
