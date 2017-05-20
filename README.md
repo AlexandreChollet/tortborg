@@ -1,8 +1,8 @@
 # tortborg
 An interaction listener between pyborg and Telegram bots.
 
-https://github.com/bdrewery/PyBorg
-https://github.com/python-telegram-bot/python-telegram-bot
+- https://github.com/bdrewery/PyBorg
+- https://github.com/python-telegram-bot/python-telegram-bot
 
 Requirements :
 - Python 2.7.10 or higher installed
