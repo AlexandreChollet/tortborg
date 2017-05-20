@@ -4,6 +4,7 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from lib import pyborg
 import pyborg_interface
+import json
 
 # Class designed to handle messages from/to Telegram
 class TelegramBotHandler:
@@ -43,12 +44,14 @@ class TelegramBotHandler:
         if update.effective_user.username == self.configData["owner"]:
             owner = 1;
 
-        print update.message.from_user
+        print "Handling message : " + update.message.text
 
         # send input to pyborg
         self.pInterface.input(str(update.message.text), update.effective_user.username, self.configData["replyRate"], self.configData["learn"], owner)
 
     def sendReply(self, message):
+
+        print "Replying with : " + message
         self.bot.send_message(chat_id=self.update.message.chat_id, text=message)
 
     def error(self, bot, update, error):
