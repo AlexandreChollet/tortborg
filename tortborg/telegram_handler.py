@@ -24,16 +24,20 @@ class TelegramBotHandler:
 
         self.bot = new_pyborg
 
-    # Define a few command handlers. These usually take the two arguments bot and
-    # update. Error handlers also receive the raised TelegramError object in error.
+    # Basic start method
     def start(self, bot, update):
         update.message.reply_text(self.configData["sentences"]["hi"])
 
-
+    # Basic help method
     def help(self, bot, update):
         update.message.reply_text(self.configData["sentences"]["help"])
 
+    # Error handler
+    def error(self, bot, update, error):
+        logger.warn('Update "%s" caused error "%s"' % (update, error))
 
+    # Method called whenevr the bot receives a message,
+    # whether from a private or group chat
     def handleReply(self, bot, update):
         # save last data from telegram inside the handler
         self.bot    = bot     # infos about the bot
@@ -49,15 +53,14 @@ class TelegramBotHandler:
         # send input to pyborg
         self.pInterface.input(str(update.message.text), update.effective_user.username, self.configData["replyRate"], self.configData["learn"], owner)
 
+    # Method called once the pyborg bot returns a newly generated sentence
+    # May take a while to be called, depending on the input and the construction of the output
     def sendReply(self, message):
-
         print "Replying with : " + message
         self.bot.send_message(chat_id=self.update.message.chat_id, text=message)
 
-    def error(self, bot, update, error):
-        logger.warn('Update "%s" caused error "%s"' % (update, error))
 
-
+    # Deploys the dispatcher which connects to this Telegram bot
     def deployTelegramDispatcher(self):
 
         print "Connecting to bot with token : " + self.configData["token"]

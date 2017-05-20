@@ -6,12 +6,12 @@ class TelegramForPyborg:
     def __init__(self, context, my_pyborg):
     	self.context			= context
         self.pyborg 			= my_pyborg
-        self.generatedMessage 	= ""
+        self.generatedMessage   = ""
 
     # Sends a new message to pyborg
     # self 			: the instancied TelegramForPyborg
 	# message 		: the body of the message sent to pyborg
-	# replyrate 	: the chance for pyborg to reply with a sentence (%)
+	# replyrate     : the chance for pyborg to reply with a sentence (%)
 	# name 			: the name of the person who sent the message
 	# owner			: whether or not this is the bot's owner
     def input(self, message, name, replyrate = 100, learn = 1, owner = 0):
