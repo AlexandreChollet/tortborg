@@ -10,6 +10,7 @@ Requirements :
 
 Instructions :
 - Register a new bot with Telegram through the BotFather : https://telegram.me/BotFather
+- Remember to /setprivacy to "Disable" if you want it to respond to group chats
 - Configure your bot under config.json
-- Execute run.py to lsiten to messages from telegram
+- Execute run.py to listen to messages from telegram
 - Feed your bot !
