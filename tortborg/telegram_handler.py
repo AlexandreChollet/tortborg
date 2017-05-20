@@ -20,10 +20,8 @@ class TelegramBotHandler:
         except SystemExit:
             pass
         new_pyborg.save_all()
-        del new_pyborg
 
-        # Deploying dispatcher to handle messages through the Telegram API
-        self.deployTelegramDispatcher()
+        self.bot = new_pyborg
 
     # Define a few command handlers. These usually take the two arguments bot and
     # update. Error handlers also receive the raised TelegramError object in error.
